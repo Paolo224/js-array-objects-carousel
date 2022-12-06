@@ -26,9 +26,9 @@ const images = [
     }
 ];
 
-const array = [];
+const arrayImg = [];
 
-console.log(array);
+console.log(arrayImg);
 
 let newDivItem;
 
@@ -36,12 +36,12 @@ let divEl;
 
 let current = 0;
 
-for(let i = 0; i < images.length; i++){
+for (let i = 0; i < images.length; i++) {
     divEl = document.querySelector('div.carousel-image');
     console.log(divEl);
     newDivItem = document.createElement('div');
     newDivItem.classList.add('my_carousel-item');
-    array.push(newDivItem);
+    arrayImg.push(newDivItem);
     divEl.append(newDivItem);
     newDivItem.innerHTML = '<img src="./' + images[i].image + ' "alt="image">';
 };
@@ -51,31 +51,35 @@ const buttonNext = document.querySelector('div.next');
 
 console.log(buttonNext, buttonPrev);
 
-array[0].classList.add('active');
+arrayImg[0].classList.add('active');
 
-buttonPrev.addEventListener('click', function(){
-    array[current].classList.remove('active');
+buttonPrev.addEventListener('click', function () {
+    arrayImg[current].classList.remove('active');
     current--;
-    if(current == -1){
-        current = array.length - 1;
+    if (current == -1) {
+        current = arrayImg.length - 1;
     }
-    array[current].classList.add('active');
+    arrayImg[current].classList.add('active');
 });
 
-buttonNext.addEventListener('click', function(){
-    array[current].classList.remove('active');
+buttonNext.addEventListener('click', function () {
+    arrayImg[current].classList.remove('active');
     current++;
-    if(current == array.length){
+    if (current == arrayImg.length) {
         current = 0;
     }
-    array[current].classList.add('active');
+    arrayImg[current].classList.add('active');
 });
 
 let divElImg;
 
 let newDivElImg;
 
-for(let i = 0; i < images.length; i++){
+const arrayImgSmall = [];
+
+console.log(arrayImgSmall);
+
+for (let i = 0; i < images.length; i++) {
     divElImg = document.querySelector('div.carousel-thumbnails');
 
     divElImg.classList.add('overflow-auto')
@@ -84,12 +88,48 @@ for(let i = 0; i < images.length; i++){
 
     newDivElImg = document.createElement('div');
 
+    arrayImgSmall.push(newDivElImg);
+
     divElImg.append(newDivElImg);
 
     newDivElImg.innerHTML = '<img class=" img-fluid" src="./' + images[i].image + ' "alt="image">';
-
 };
 
+arrayImgSmall[0].addEventListener('click', function () {
+    arrayImgSmall[1].classList.remove('active');
+    arrayImgSmall[2].classList.remove('active');
+    arrayImgSmall[3].classList.remove('active');
+    arrayImgSmall[4].classList.remove('active');
+    arrayImgSmall[0].classList.add('active');
+});
+arrayImgSmall[1].addEventListener('click', function () {
+    arrayImgSmall[0].classList.remove('active');
+    arrayImgSmall[2].classList.remove('active');
+    arrayImgSmall[3].classList.remove('active');
+    arrayImgSmall[4].classList.remove('active');
+    arrayImgSmall[1].classList.add('active');
+});
+arrayImgSmall[2].addEventListener('click', function () {
+    arrayImgSmall[0].classList.remove('active');
+    arrayImgSmall[1].classList.remove('active');
+    arrayImgSmall[3].classList.remove('active');
+    arrayImgSmall[4].classList.remove('active');
+    arrayImgSmall[2].classList.add('active');
+});
+arrayImgSmall[3].addEventListener('click', function () {
+    arrayImgSmall[0].classList.remove('active');
+    arrayImgSmall[1].classList.remove('active');
+    arrayImgSmall[2].classList.remove('active');
+    arrayImgSmall[4].classList.remove('active');
+    arrayImgSmall[3].classList.add('active');
+});
+arrayImgSmall[4].addEventListener('click', function () {
+    arrayImgSmall[0].classList.remove('active');
+    arrayImgSmall[1].classList.remove('active');
+    arrayImgSmall[2].classList.remove('active');
+    arrayImgSmall[3].classList.remove('active');
+    arrayImgSmall[4].classList.add('active');
+});
 
 
 
