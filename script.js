@@ -28,15 +28,33 @@ const images = [
 
 let newDivItem;
 
+let divEl;
+
 for(let i = 0; i < images.length; i++){
-    const divEl = document.querySelector('div.carousel-image');
+    divEl = document.querySelector('div.carousel-image');
     console.log(divEl);
     newDivItem = document.createElement('div');
     newDivItem.classList.add('my_carousel-item');
     divEl.append(newDivItem);
-    newDivItem.innerHTML = '<img src="' + images[i].image + ' alt="image">'
-}
+    newDivItem.innerHTML = '<img src="./' + images[i].image + ' "alt="image">'
+};
 
-;
+const buttonPrev = document.querySelector('div.previous');
+const buttonNext = document.querySelector('div.next');
+
+console.log(buttonNext, buttonPrev);
+
+buttonPrev.addEventListener('click', function(){
+    
+    newDivItem.classList.add('active');
+
+})
+
+buttonNext.addEventListener('click', function(){
+    
+    newDivItem.classList.add('active');
+
+})
+
 
 
