@@ -95,42 +95,14 @@ for (let i = 0; i < images.length; i++) {
     newDivElImg.innerHTML = '<img class=" img-fluid" src="./' + images[i].image + ' "alt="image">';
 };
 
-arrayImgSmall[0].addEventListener('click', function () {
-    arrayImgSmall[1].classList.remove('active');
-    arrayImgSmall[2].classList.remove('active');
-    arrayImgSmall[3].classList.remove('active');
-    arrayImgSmall[4].classList.remove('active');
-    arrayImgSmall[0].classList.add('active');
-});
-arrayImgSmall[1].addEventListener('click', function () {
-    arrayImgSmall[0].classList.remove('active');
-    arrayImgSmall[2].classList.remove('active');
-    arrayImgSmall[3].classList.remove('active');
-    arrayImgSmall[4].classList.remove('active');
-    arrayImgSmall[1].classList.add('active');
-});
-arrayImgSmall[2].addEventListener('click', function () {
-    arrayImgSmall[0].classList.remove('active');
-    arrayImgSmall[1].classList.remove('active');
-    arrayImgSmall[3].classList.remove('active');
-    arrayImgSmall[4].classList.remove('active');
-    arrayImgSmall[2].classList.add('active');
-});
-arrayImgSmall[3].addEventListener('click', function () {
-    arrayImgSmall[0].classList.remove('active');
-    arrayImgSmall[1].classList.remove('active');
-    arrayImgSmall[2].classList.remove('active');
-    arrayImgSmall[4].classList.remove('active');
-    arrayImgSmall[3].classList.add('active');
-});
-arrayImgSmall[4].addEventListener('click', function () {
-    arrayImgSmall[0].classList.remove('active');
-    arrayImgSmall[1].classList.remove('active');
-    arrayImgSmall[2].classList.remove('active');
-    arrayImgSmall[3].classList.remove('active');
-    arrayImgSmall[4].classList.add('active');
-});
-
+newDivElImg.addEventListener('click', function(){
+    arrayImgSmall[current].classList.remove('active');
+    current++;
+    if (current == arrayImg.length) {
+        current = 0;
+    }
+    arrayImg[current].classList.add('active');
+})
 
 
 
