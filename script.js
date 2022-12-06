@@ -26,17 +26,24 @@ const images = [
     }
 ];
 
+const array = [];
+
+console.log(array);
+
 let newDivItem;
 
 let divEl;
+
+let current = 0;
 
 for(let i = 0; i < images.length; i++){
     divEl = document.querySelector('div.carousel-image');
     console.log(divEl);
     newDivItem = document.createElement('div');
     newDivItem.classList.add('my_carousel-item');
+    array.push(newDivItem);
     divEl.append(newDivItem);
-    newDivItem.innerHTML = '<img src="./' + images[i].image + ' "alt="image">'
+    newDivItem.innerHTML = '<img src="./' + images[i].image + ' "alt="image">';
 };
 
 const buttonPrev = document.querySelector('div.previous');
@@ -44,17 +51,47 @@ const buttonNext = document.querySelector('div.next');
 
 console.log(buttonNext, buttonPrev);
 
-buttonPrev.addEventListener('click', function(){
-    
-    newDivItem.classList.add('active');
+array[0].classList.add('active');
 
-})
+buttonPrev.addEventListener('click', function(){
+    array[current].classList.remove('active');
+    current--;
+    if(current == -1){
+        current = array.length - 1;
+    }
+    array[current].classList.add('active');
+});
 
 buttonNext.addEventListener('click', function(){
-    
-    newDivItem.classList.add('active');
+    array[current].classList.remove('active');
+    current++;
+    if(current == array.length){
+        current = 0;
+    }
+    array[current].classList.add('active');
+});
 
-})
+let divElImg;
+
+let newDivElImg;
+
+for(let i = 0; i < images.length; i++){
+    divElImg = document.querySelector('div.carousel-thumbnails');
+
+    divElImg.classList.add('overflow-auto')
+
+    console.log(divElImg);
+
+    newDivElImg = document.createElement('div');
+
+    divElImg.append(newDivElImg);
+
+    newDivElImg.innerHTML = '<img class=" img-fluid" src="./' + images[i].image + ' "alt="image">';
+
+};
+
+
+
 
 
 

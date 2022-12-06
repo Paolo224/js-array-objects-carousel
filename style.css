@@ -15,14 +15,14 @@ div.carousel-wrapper{
 }
 
 div.carousel-image{
-    width: 100%;
+    width: 78.5%;
     background-color: blue;
 }
 
-/* div.carousel-thumbnails{
+div.carousel-thumbnails{
     width: 21.5%;
     background-color: violet;
-} */
+}
 
 .font-color-white{
     color:white;
