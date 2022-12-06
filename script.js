@@ -95,15 +95,4 @@ for (let i = 0; i < images.length; i++) {
     newDivElImg.innerHTML = '<img class=" img-fluid" src="./' + images[i].image + ' "alt="image">';
 };
 
-newDivElImg.addEventListener('click', function(){
-    arrayImgSmall[current].classList.remove('active');
-    current++;
-    if (current == arrayImg.length) {
-        current = 0;
-    }
-    arrayImg[current].classList.add('active');
-})
-
-
-
 
